@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<style>
+    	.container5 {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	    width: 100%;
+		margin-top: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: space-between;
+	    align-items: center;
+		font-size:2.5em;
+		font-family: "微软雅黑", "SimSun", sans-serif;
+	}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+	<link rel="stylesheet" href="../../static/system/style.css">
+<a href='../../static/system/shoukuan.png'  style="position: fixed; z-index: 2147483583; border-radius: 2px; cursor: pointer; background: rgb(0, 0, 0); right: 0px; top: 50%; text-decoration: none; outline: none; font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; font-size: 28px; display: block; margin: 0px; border: none; float: none; color: rgb(255, 255, 255); line-height: 36px; padding: 24px 18px; width: 32px; box-sizing: content-box !important;">赞助我们</a>
+</head>
+<body>
+    <div class='header'>
+		<div class="header-left"> 
+			<a class='btn' href="{{url}}">{{name}}</a>
+		</div>
+		<div class="header-right"> 
+			<a class='btn' href="/main/visitor/1">退出</a>
+		</div>
+	</div>
+    <div>
+        <center>
+            <h1>欢迎来到BBQ网</h1>
+        </center>
+    </div>
+    <div class="container5">
+        <table>
+            <h2 >推荐文章</h2></br>
+            {% for Info in info %}
+            <a href="/detail/{{checkcode}}/{{Info.sid}}" font-size="1.5em">{{Info.title}}</a></br>
+            {% endfor %}
+        </table>
+    </div>
+    <div class='container'>
+        {% if upid != '0' %}
+            <a class='btn2' href="/main/{{checkcode}}/{{upid}}">上一页</a>
+        {% endif %}
+        {% if dpid != '0' %}
+            <a class='btn2' href="/main/{{checkcode}}/{{dpid}}">下一页</a>
+        {% endif %}
+    </div>
+</body>
+</html>

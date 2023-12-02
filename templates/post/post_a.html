@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在论坛上发布文章</title>
+	<link rel="stylesheet" href="../../static/system/style.css">
+</head>
+<body>
+	<div class='header'>
+		<div class='header-left'>
+			<a class='btn' href="/user/{{checkcode}}">回到个人中心</a><br/>
+		</div>
+	</div>
+	<center>
+        <form action="/post/post_article/{{checkcode}}" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><input class="input_title" type="text" name="title" placeholder="文章标题"></td>
+                </tr>
+                <tr>
+                    <td><textarea  class="input_text" type="text" name="text" cols="30" rows="10" placeholder="请输入文章内容"></textarea></td>
+                </tr>
+                <tr>
+                    <td><h2>添加图片（仅限一张）</h2><input class="btn" type="file" name="img"></td>
+                </tr>
+                <tr>
+
+					<td>
+					<fieldset style="padding:10px;border:2px solid #ccc;">
+						<legend><strong>Option:</strong></legend>
+						<div>
+							<input class="input_radio" type="radio" name="hide" value="False" checked /><label>实名</label>
+						</div>
+						<div>
+							<input class="input_radio" type="radio" name="hide" value="True" /><label>匿名</label>
+						</div>
+					</fieldset>
+					</td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input class='btn' type="submit" value="发布">
+                        <input class='btn' type="reset" value="清空">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

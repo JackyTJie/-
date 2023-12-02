@@ -1,0 +1,44 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+<link rel="stylesheet" href="../../static/system/style.css">
+</head> 
+<body> 
+<div class="header"> 
+	<div class="header-left"> 
+		<a class='btn' href="/main/{{User.checkcode}}/1">返回</a>
+	</div> 
+	<div class="header-right"> 
+		<div> {{User.level}} </div> 
+		<div> {{User.BBcoin}} </div> 
+	</div> 
+</div>
+<div class="container">
+    <a class='btn' href="/post/{{User.checkcode}}">发布文章</a>
+</div>
+
+<div class="container">
+    {{User.name}}</br>
+    {% if User.clas == 1 %}
+        <h2 style="color: #FFD700">VIP</h2>
+    {% elif User.clas > 1 %}
+        <a class='btn' href="/admin/{{User.checkcode}}">admin</a>
+    {% endif %}
+</div>
+<div class="container">
+    {{User.level}}</br>
+    {{User.BBcoin}}
+</div>
+<div>
+    已发布文章</br>
+    {% for Info in info %}
+        <a href="/detail/{{User.checkcode}}/{{Info.sid}}">{{Info.title}}</a></br>
+    {% endfor %}
+</div>
+<div>
+    你的评论</br>
+    {% for Com in com %}
+        {{Com.text}}</br>
+    {% endfor %}
+</div>
+</body> 
+</html>

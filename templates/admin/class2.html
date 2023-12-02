@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div>
+    <center>
+        <h2>管理界面</h2><br/>
+        <a href="/user/{{User.checkcode}}">返回个人主页</a>
+        <table width="800" border="1">
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>正文</th>
+                <th>图片路径</th>
+                <th>礼物</th>
+                <th>操作</th>
+            </tr>
+            {% for info in ilist %}
+                <tr>
+                    <td>{{info.id}}</td>
+                    <td>{{info.title}}</td>
+                    <td>{{info.text}}</td>
+                    <td>{{info.picture}}</td>
+                    <td>{{info.gift}}</td>
+                    <td>
+                        <a href="/admin/{{User.checkcode}}/info/del/{{info.id}}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <table width="800" border="1">
+            <tr>
+                <th>标题</th>
+                <th>对应文章</th>
+                <th>用户名</th>
+                <th>内容</th>
+                <th>图片路径</th>
+                <th>点赞数</th>
+                <th>操作/th>
+            </tr>
+            {% for com in clist %}
+                <tr>
+                    <td>{{com.id}}</td>
+                    <td>{{com.tarInfo}}</td>
+                    <td>{{com.fromu}}</td>
+                    <td>{{com.text}}</td>
+                    <td>{{com.picture}}</td>
+                    <td>{{com.thumb}}</td>
+                    <td>
+                        <a href="/admin/{{User.checkcode}}/com/del/{{com.id}}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+  </div>
+</body>
+</html>

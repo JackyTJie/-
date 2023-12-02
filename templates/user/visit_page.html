@@ -1,0 +1,22 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>别人中心</title>
+<link rel="stylesheet" href="../../static/system/style.css">
+</head> 
+<body> 
+<div class="header"> 
+	<div class="header-left"> 
+		<a class='btn' href="/user/{{checkcode}}">返回</a>
+	</div>
+</div>
+<div class="container">
+    {{uname}}</br>
+    {{ulevel}}
+</div>
+<div>
+    已发布文章</br>
+    {% for Info in info %}
+        <a href="/detail/{{checkcode}}/{{Info.sid}}">{{Info.title}}</a></br>
+    {% endfor %}
+</div>
+</body> 
+</html>

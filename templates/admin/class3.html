@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super admin</title>
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <center>
+            <h2>Super Management</h2><br/>
+            <a href="/login/register">Add User</a>
+            <a href="/user/{{User.checkcode}}">Exit</a>
+            <table width="800" border="1">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>password</th>
+                    <th>class</th>
+                    <th>level</th>
+                    <th>BBcoin</th>
+					<th>Star</th>
+                    <th>Operation</th>
+					
+                </tr>
+                {% for user in ulist %}
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.password}}</td>
+                        <td>{{user.clas}}</td>
+                        <td>{{user.level}}</td>
+                        <td>{{user.BBcoin}}</td>
+						<td>{{user.star}}</td>
+                        <td><a href="/admin/{{User.checkcode}}/u/edit/{{user.id}}">edit</a>
+                            <a href="/admin/{{User.checkcode}}/user/del/{{user.id}}">delete </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <table width="800" border="1">
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>text</th>
+                    <th>picture</th>
+                    <th>gift</th>
+                    <th>from</th>
+                    <th>hide</th>
+                    <th>Operation</th>
+                </tr>
+                {% for info in ilist %}
+                    <tr>
+                        <td>{{info.id}}</td>
+                        <td>{{info.title}}</td>
+                        <td>{{info.text}}</td>
+                        <td>{{info.picture}}</td>
+                        <td>{{info.gift}}</td>
+                        <td>{{info.fromu}}</td>
+                        <td>{{info.hide}}</td>
+                        <td>
+                            <a href="/admin/{{User.checkcode}}/info/del/{{info.id}}">delete </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <table width="800" border="1">
+                <tr>
+                    <th>id</th>
+                    <th>tarInfo</th>
+                    <th>text</th>
+                    <th>picture</th>
+                    <th>thumb</th>
+                    <th>from</th>
+                    <th>Operation</th>
+                </tr>
+                {% for com in clist %}
+                    <tr>
+                        <td>{{com.id}}</td>
+                        <td>{{com.tarInfo}}</td>
+                        <td>{{com.text}}</td>
+                        <td>{{com.picture}}</td>
+                        <td>{{com.thumb}}</td>
+                        <td>{{com.fromu}}</td>
+                        <td>
+                            <a href="/admin/{{User.checkcode}}/com/del/{{com.id}}">delete </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </div>
+</body>
+</html>

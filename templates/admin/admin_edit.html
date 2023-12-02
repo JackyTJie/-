@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Operation</title>
+	<link rel="stylesheet" href="../../static/system/style.css">
+</head>
+<body>
+    <a href="/admin/{{checkcode}}">Return to admin</a><br/>
+    <center>
+        <form action="/admin/{{checkcode}}/user/edit/{{tid}}" method="post">
+            <table class='container4'>
+                <tr>
+                    <td>name<input type="text" name="name" value="{{User.name}}"></td>
+                </tr>
+                <tr>
+                    <td>password<input type="text" name="password" value="{{User.password}}"></td>
+                </tr>
+                <tr>
+                    <td>class<input type="text" name="class" value="{{User.clas}}"></td>
+                </tr>
+                <tr>
+                    <td>level<input type="text" name="level" value="{{User.level}}"></td>
+                </tr>
+                <tr>
+                    <td>BBcoin<input type="text" name="BBcoin" value="{{User.BBcoin}}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Save">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>
