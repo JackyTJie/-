@@ -36,9 +36,9 @@ def checkupdate(request):
             return HttpResponseRedirect('/main/' + code + '/1')
             # context = {'Response': 'Success', 'url': '/user/' + code}
         else:
-            context = {'Response': 'Password Wrong', 'url': '/login'}
+            context = {'Response': '密码错误', 'url': '/login'}
     except:
-        context = {'Response': 'User does not exist', 'url': '/login'}
+        context = {'Response': '用户不存在', 'url': '/login/register'}
     return render(request, 'Res.html', context)
 
 
@@ -48,28 +48,38 @@ def register(request):
 
 def reg_op(request):
     try:
-        user = User()
-        try:
-            ul = User.objects.last()
-            nid = ul.id + 1
-        except:
-            nid = 1
-        user.id = nid
-        user.name = request.POST['name']
-        code = refresh_code()
-        user.checkcode = code
-        user.password = request.POST['password']
-        user.clas = 0
-        user.level = 1
-        user.BBcoin = 0
-        user.star = '1'
-        user.save()
-        return HttpResponseRedirect('/main/' + code + '/1')
+        User.objects.get(name=request.POST['name'])
+        context = {'Response': '用户名已被占用', 'url': '/login/register'}
+        return render(request, 'Res.html', context)
         # context = {'Response': 'Success', 'url': '/main/' + code + '/1'}
         # return render(request, 'Res.html', context)
     except:
-        context = {'Response': 'Name has been used', 'url': '/login/register'}
-        return render(request, 'Res.html', context)
+        if request.POST['check'] == 'con':
+            user = User()
+            try:
+                ul = User.objects.last()
+                nid = ul.id + 1
+            except:
+                nid = 1
+            user.id = nid
+            user.name = request.POST['name']
+            code = refresh_code()
+            user.checkcode = code
+            user.password = request.POST['password']
+            user.clas = 0
+            user.level = 1
+            user.BBcoin = 0
+            user.star = '1'
+            user.save()
+            return HttpResponseRedirect('/main/' + code + '/1')
+        else:
+            context = {'Response': '请同意用户协议', 'url': '/login/register'}
+            return render(request, 'Res.html', context)
+
+
+def con(request):
+    return render(request, 'login/user_contract.html')
+
 
 
 

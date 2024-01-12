@@ -45,3 +45,11 @@ def thumb(request, checkcode, tid, thid):
     except:
         context = {'Response': 'Please login', 'url': '/main/visitor/1'}
         return render(request, 'Res.html', context)
+
+
+def red1(request, tid):
+    return HttpResponseRedirect('/login/register')
+
+
+def red2(request, tid, thid):
+    return HttpResponseRedirect('/login/register')

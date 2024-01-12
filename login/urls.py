@@ -6,4 +6,5 @@ urlpatterns = [
     path('checkupdate', views.checkupdate, name='secure'),
     path('register', views.register, name='register'),
     path('reg_op', views.reg_op, name='reg_op'),
+    path('contract', views.con, name='con'),
 ]

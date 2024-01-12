@@ -23,6 +23,7 @@ class Info(models.Model):
     gift = models.CharField(max_length=300)
     fromu = models.CharField(max_length=50)
     hide = models.CharField(max_length=5)
+    pub_time = models.CharField(max_length=50)
 
 
 class Com(models.Model):
@@ -33,4 +34,12 @@ class Com(models.Model):
     picture = models.CharField(max_length=300)
     thumb = models.IntegerField()
     fromu = models.CharField(max_length=50)
+
+
+class Mes(models.Model):
+    id = models.IntegerField(primary_key=True)
+    fromu = models.CharField(max_length=50)
+    taru = models.CharField(max_length=50)
+    text = models.CharField(max_length=200)
+    picture = models.CharField(max_length=300)
 

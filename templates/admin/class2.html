@@ -17,6 +17,7 @@
                 <th>正文</th>
                 <th>图片路径</th>
                 <th>礼物</th>
+                <th>日期</th>
                 <th>操作</th>
             </tr>
             {% for info in ilist %}
@@ -26,6 +27,7 @@
                     <td>{{info.text}}</td>
                     <td>{{info.picture}}</td>
                     <td>{{info.gift}}</td>
+                    <td>{{info.pub_time}}</td>
                     <td>
                         <a href="/admin/{{User.checkcode}}/info/del/{{info.id}}">删除</a>
                     </td>
@@ -40,7 +42,7 @@
                 <th>内容</th>
                 <th>图片路径</th>
                 <th>点赞数</th>
-                <th>操作/th>
+                <th>操作</th>
             </tr>
             {% for com in clist %}
                 <tr>

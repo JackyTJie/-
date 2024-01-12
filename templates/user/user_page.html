@@ -1,15 +1,27 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+﻿<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人中心</title>
 <link rel="stylesheet" href="../../static/system/style.css">
 </head> 
+<style>
+#text {
+  width: 150px;
+  font-size: 30px;
+  white-space: nowrap; /* 禁止换行 */
+  overflow: hidden; /* 隐藏超出部分 */
+  text-overflow: ellipsis; /* 在超出部分处显示省略号 */
+}
+</style>
 <body> 
 <div class="header"> 
 	<div class="header-left"> 
 		<a class='btn' href="/main/{{User.checkcode}}/1">返回</a>
 	</div> 
-	<div class="header-right"> 
-		<div> {{User.level}} </div> 
-		<div> {{User.BBcoin}} </div> 
+	<div class="header-right">
+        {% if new_mes == 'True' %}
+            <a class="btn" href="/message/{{User.checkcode}}">新私信</a>
+        {% else %}
+            <a class="btn" href="/message/{{User.checkcode}}">私信</a>
+        {% endif %}
 	</div> 
 </div>
 <div class="container">
@@ -25,16 +37,42 @@
     {% endif %}
 </div>
 <div class="container">
-    {{User.level}}</br>
-    {{User.BBcoin}}
+    Level: {{User.level}}</br>
+    BBcoin: {{User.BBcoin}}
 </div>
-<div>
+<div class="container">
+    <a href="/user/{{User.checkcode}}/reset">修改个人信息</a>
+</div>
+<div class="container">
+    <a href="/user/game_1" >点我开赛车</a>
+</div>
+<div class="container">
+     <a href="../../static/system/movie/video.html">movie</a>
+</div>
+<div class="container">
+我的收藏
+</div>
+    <table>
+        <tr>
+            <th>文章详情</th>
+            <th>操作</th>
+        </tr>
+        {% for Info in star %}
+            <tr>
+                <td><a href="/detail/{{User.checkcode}}/{{Info.sid}}"><pre id="text">{{Info.title}}</pre></a></td>
+                <td><a href="/detail/{{User.checkcode}}/{{Info.sid}}/unstar">移除收藏</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+<div class="container5">
     已发布文章</br>
     {% for Info in info %}
         <a href="/detail/{{User.checkcode}}/{{Info.sid}}">{{Info.title}}</a></br>
     {% endfor %}
 </div>
-<div>
+<div class="container5">
     你的评论</br>
     {% for Com in com %}
         {{Com.text}}</br>

@@ -15,7 +15,6 @@
                 <tr>
                     <th>id</th>
                     <th>name</th>
-                    <th>password</th>
                     <th>class</th>
                     <th>level</th>
                     <th>BBcoin</th>
@@ -27,7 +26,6 @@
                     <tr>
                         <td>{{user.id}}</td>
                         <td>{{user.name}}</td>
-                        <td>{{user.password}}</td>
                         <td>{{user.clas}}</td>
                         <td>{{user.level}}</td>
                         <td>{{user.BBcoin}}</td>
@@ -84,6 +82,28 @@
                         <td>{{com.fromu}}</td>
                         <td>
                             <a href="/admin/{{User.checkcode}}/com/del/{{com.id}}">delete </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <table width="800" border="1">
+                <tr>
+                    <th>id</th>
+                    <th>tar</th>
+                    <th>from</th>
+                    <th>text</th>
+                    <th>picture</th>
+                    <th>Operation</th>
+                </tr>
+                {% for mes in mlist %}
+                    <tr>
+                        <td>{{mes.id}}</td>
+                        <td>{{mes.taru}}</td>
+                        <td>{{mes.fromu}}</td>
+                        <td>{{mes.text}}</td>
+                        <td>{{mes.picture}}</td>
+                        <td>
+                            <a href="/admin/{{User.checkcode}}/mes/del/{{mes.id}}">delete</a>
                         </td>
                     </tr>
                 {% endfor %}

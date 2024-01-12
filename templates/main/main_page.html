@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <style>
     	.container5 {
@@ -18,11 +18,19 @@
 		font-family: "微软雅黑", "SimSun", sans-serif;
 	}
 </style>
+<style>
+#text {
+  width: 600px; /* 设置元素宽度 */
+  white-space: nowrap; /* 禁止换行 */
+  overflow: hidden; /* 隐藏超出部分 */
+  text-overflow: ellipsis; /* 在超出部分处显示省略号 */
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
 	<link rel="stylesheet" href="../../static/system/style.css">
-<a href='../../static/system/shoukuan.png'  style="position: fixed; z-index: 2147483583; border-radius: 2px; cursor: pointer; background: rgb(0, 0, 0); right: 0px; top: 50%; text-decoration: none; outline: none; font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; font-size: 28px; display: block; margin: 0px; border: none; float: none; color: rgb(255, 255, 255); line-height: 36px; padding: 24px 18px; width: 32px; box-sizing: content-box !important;">赞助我们</a>
+<a href='../../static/system/shoukuan.jpg'  style="position: fixed; z-index: 2147483583; border-radius: 2px; cursor: pointer; background: rgb(0, 0, 0); right: 0px; top: 50%; text-decoration: none; outline: none; font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; font-size: 28px; display: block; margin: 0px; border: none; float: none; color: rgb(255, 255, 255); line-height: 36px; padding: 24px 18px; width: 32px; box-sizing: content-box !important;">赞助我们</a>
 </head>
 <body>
     <div class='header'>
@@ -35,17 +43,21 @@
 	</div>
     <div>
         <center>
-            <h1>欢迎来到BBQ网</h1>
+            <h1>普陀学生匿名论坛</h1>
         </center>
     </div>
-    <div class="container5">
+
         <table>
-            <h2 >推荐文章</h2></br>
+		<div class='container'>
+            <h2 >推荐文章</h2>
+		</div></br>
             {% for Info in info %}
-            <a href="/detail/{{checkcode}}/{{Info.sid}}" font-size="1.5em">{{Info.title}}</a></br>
+			<div class="container5">
+				<a href="/detail/{{checkcode}}/{{Info.sid}}" font-size="1.5em"><pre>{{Info.title}}</pre></a></br>
+				<p id="text">{{Info.text}}</p>
+			</div>
             {% endfor %}
         </table>
-    </div>
     <div class='container'>
         {% if upid != '0' %}
             <a class='btn2' href="/main/{{checkcode}}/{{upid}}">上一页</a>

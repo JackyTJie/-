@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>送礼物</title>
+	<link rel="stylesheet" href="../../../static/system/style.css">
+</head>
+<body>
+    <div class='header'>
+		<div class='header-left'>
+		    <a class='btn' href="/detail/{{User.checkcode}}/{{id}}">返回文章</a><br/>
+		</div>
+	</div>
+
+    <center>
+        <form class="formcontainer1" action="/detail/{{User.checkcode}}/{{id}}/send_gift" method="post">
+            <table>
+				<h1>给作者送礼物</h1>
+                <h2>您有{{User.BBcoin}}个BBcoin</h2>
+                <tr>
+                    <td><input type="radio" name="type" value="1st" checked />一点心意（10）</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="type" value="2nd">扣666（66）</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="type" value="3rd">再来一篇（88）</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="type" value="4th">最高评价（100）</td>
+                </tr>
+                <tr>
+                    <td>超级加倍？<input class="input_title" type="text" name="num" value="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input class='btn' type="submit" value="送出">
+                        <input class='btn' type="reset" value="清空">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

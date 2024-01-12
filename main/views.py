@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.models import User, Info
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -29,5 +30,9 @@ def m_page(request, checkcode, pid):
                'info': info,
                'upid': upid, 'dpid': dpid}
     return render(request, 'main/main_page.html', context)
+
+
+def red(request):
+    return HttpResponseRedirect('/main/visitor/1')
 
 

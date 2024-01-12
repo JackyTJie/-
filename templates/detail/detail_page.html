@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <style>
      	td {
@@ -60,17 +60,28 @@
 		</div>
     </div>
     <div class='pre_container'>
-
-        <p>作者：<a href="/user/{{user.checkcode}}/{{author}}">{{author}}</a></p>
+        {% if author == 'revealed' %}
+            <p>作者：匿名</p>
+        {% else %}
+            <p>作者：<a href="/user/{{user.checkcode}}/{{author}}">{{author}}</a></p>
+        {% endif %}
 		<a class='btn' href='/detail/{{user.checkcode}}/{{tid}}/star'>收藏本文</a>
         <pre>标题：{{title}}</pre>
         <pre>{{text}}</pre>
-	
+	    <pre style="font-size: 20px; color: grey">发布于：{{time}}</pre>
     </div>
     <div>
         <center>
             <img src="../../static/Info_img/{{img}}" alt="" width="50%" />
         </center>
+    </div>
+    <div class="container1">
+        <a class="btn" href="/detail/{{user.checkcode}}/{{tid}}/gift">给作者送礼物</a>
+        <h2>目前作者已经收到：</br>
+        {{st}}个“一点心意”；</br>
+        {{nd}}个“666”；</br>
+        {{rd}}个“再来一篇”；</br>
+        {{th}}个“最高评价”；</h2>
     </div>
     <div>
         <h1 class='container'>评论</h1>
@@ -86,7 +97,7 @@
                     <td>{{c.text}}</td>
                     <td align="center">{{c.thumb}}
                         <a href="/thumb/{{user.checkcode}}/{{tid}}/{{c.idstr}}">
-                        <img src="../../static/system/thumb.png" alt="" width="30">
+						<svg width="80px" height="80px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="video-like-icon video-toolbar-item-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.77234 30.8573V11.7471H7.54573C5.50932 11.7471 3.85742 13.3931 3.85742 15.425V27.1794C3.85742 29.2112 5.50932 30.8573 7.54573 30.8573H9.77234ZM11.9902 30.8573V11.7054C14.9897 10.627 16.6942 7.8853 17.1055 3.33591C17.2666 1.55463 18.9633 0.814421 20.5803 1.59505C22.1847 2.36964 23.243 4.32583 23.243 6.93947C23.243 8.50265 23.0478 10.1054 22.6582 11.7471H29.7324C31.7739 11.7471 33.4289 13.402 33.4289 15.4435C33.4289 15.7416 33.3928 16.0386 33.3215 16.328L30.9883 25.7957C30.2558 28.7683 27.5894 30.8573 24.528 30.8573H11.9911H11.9902Z" fill="currentColor"></path></svg>
                         </a>
                     </td>
                 </tr>

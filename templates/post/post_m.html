@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私信给别人</title>
+	<link rel="stylesheet" href="../../static/system/style.css">
+</head>
+<body>
+	<div class='header'>
+		<div class='header-left'>
+			<a class='btn' href="/user/{{checkcode}}">回到个人中心</a><br/>
+		</div>
+	</div>
+	<center>
+        <form action="/post/message/{{checkcode}}" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><input class="input_title" type="text" name="tar" placeholder="发送给……"></td>
+                </tr>
+                <tr>
+                    <td><textarea  class="input_text" type="text" name="text" cols="30" rows="10" placeholder="请输入私信内容"></textarea></td>
+                </tr>
+                <tr>
+                    <td><h2>添加图片（仅限一张）</h2><input class="btn" type="file" name="img"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input class='btn' type="submit" value="发送">
+                        <input class='btn' type="reset" value="清空">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>
