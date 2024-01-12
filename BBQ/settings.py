@@ -16,7 +16,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # 上传图片的路径
-IMG_UPLOAD = os.path.join(BASE_DIR, 'static/Info_img')
+IMG_UPLOAD_Info = os.path.join(BASE_DIR, 'static/Info_img')
+IMG_UPLOAD_Mes = os.path.join(BASE_DIR, 'static/Mes_img')
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'main',
     'post',
     'user',
+    'message',
 ]
 
 MIDDLEWARE = [
